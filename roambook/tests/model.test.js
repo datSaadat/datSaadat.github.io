@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {summarize,validateVisit} from '../model.js';
+const visit=(x={})=>({type:'city',name:'Austin',country:'US',state:'Texas',status:'visited',date:'',trip:'',notes:'',...x});
+test('cities imply country and state; repeat visits do not inflate unique totals',()=>{const s=summarize([visit(),visit(),visit({name:'Houston'})]);assert.deepEqual(s.counts,[1,1,2,0,0,0]);});
+test('wishlist and transit do not count as visited',()=>assert.deepEqual(summarize([visit({status:'wishlist'}),visit({status:'transit'})]).counts,[0,0,0,0,0,0]));
+test('deleting the final child removes inferred geography; explicit country survives',()=>{assert.equal(summarize([]).countries.size,0);assert.equal(summarize([visit({type:'country',name:'United States',state:''})]).countries.size,1);});
+test('multi-state park counts once, while both explicitly visited states count',()=>{const p=visit({type:'national-park',name:'Yellowstone National Park',state:'Wyoming'});assert.deepEqual(summarize([p,{...p,state:'Montana'}]).counts,[1,2,0,0,1,0]);});
+test('same-named cities in different countries remain distinct',()=>assert.deepEqual(summarize([visit({name:'Paris'}),visit({name:'Paris',country:'FR',state:''})]).counts,[2,1,1,1,0,0]));
+test('direct state visits do not create city or park counts',()=>assert.deepEqual(summarize([visit({type:'state',name:'Texas'})]).counts,[1,1,0,0,0,0]));
+test('DC is not counted as a US state',()=>assert.equal(summarize([visit({state:'District of Columbia'})]).states.size,0));
+test('malformed dates, missing states and invalid types fail validation',()=>{for(const x of [{date:'2025-02-30'},{state:''},{type:'hotel'},{notes:null}])assert.throws(()=>validateVisit(visit(x)));});
