@@ -10,3 +10,77 @@ body{position:relative;isolation:isolate}#neural-canvas{position:fixed;inset:0;w
 @media(max-width:900px){.header nav{display:none}.menu-toggle{display:flex;gap:15px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:8px 12px;font-size:12px}.mobile-menu{position:absolute;top:90px;left:0;right:0;background:var(--bg);z-index:10;padding:20px;box-shadow:0 20px 25px #0002}.mobile-menu a{display:block;padding:12px;border-bottom:1px solid var(--line)}}
 @media(max-width:700px){.mobile-menu{top:76px}.page-title{font-size:42px}.research-page h1{font-size:49px}.research-lead{font-size:17px}.research-details{margin-top:35px}.research-details details{padding:18px}.contact-page .page-title{font-size:49px}.publication-controls{gap:12px}.publication-controls label{flex-basis:100%}.contact-page{margin-block:25px}.gallery-section{min-height:auto}.hero-photo figcaption{background:linear-gradient(transparent,#0007);padding:8px;border-radius:3px}footer{gap:16px}#neural-canvas{opacity:.8}}
 @media(prefers-reduced-motion:reduce){.research-card,.gallery-open img{transition:none}}
+
+/* Phone and tablet layout: keep text, controls, and cards within the viewport. */
+@media (max-width:900px){
+  .hero>*,.split>*,.publication>*,.section-heading>*{min-width:0}
+  .mobile-menu a{min-height:48px;display:flex;align-items:center}
+  .menu-toggle{min-height:44px;min-width:88px;justify-content:center;align-items:center}
+  .research-details details+details{margin-top:18px}
+}
+@media (max-width:700px){
+  .wrap,.header{width:calc(100% - 36px)}
+  .header{height:72px}
+  .brand{font-size:29px}
+  .mobile-menu{top:72px;padding:12px 18px}
+  .hero{padding-block:28px 32px;gap:28px}
+  .eyebrow{flex-wrap:wrap;line-height:1.6;letter-spacing:1.1px;margin-bottom:18px}
+  .dot{flex-shrink:0}
+  .greeting{margin-top:22px;margin-bottom:12px}
+  h1{font-size:clamp(42px,11.5vw,64px);line-height:1.06;letter-spacing:-1.6px}
+  .intro{font-size:16px;line-height:1.7;max-width:none}
+  .actions{flex-wrap:wrap;gap:16px 22px;margin-top:24px}
+  .button{min-height:48px;align-items:center;justify-content:center}
+  .actions .text-link{min-height:44px;display:inline-flex;align-items:center;gap:6px}
+  .hero-bottom{flex-wrap:wrap;gap:12px;margin-top:24px;font-size:11px}
+  .hero-photo{height:clamp(300px,100vw,420px);max-width:430px;margin-inline:auto}
+  .hero-photo>img{border-radius:100px 100px 5px 5px}
+  .photo-label{left:8px;bottom:62px;padding:12px 18px;font-size:24px}
+  .hero-photo figcaption{left:10px;right:10px;bottom:12px;font-size:8px}
+  .topic-strip .wrap{font-size:12px;line-height:1.5;gap:12px 18px;padding-block:18px}
+  .section{padding-block:40px}
+  h2{font-size:clamp(32px,9vw,42px);line-height:1.13;letter-spacing:-1px}
+  .page-title,.research-page h1,.contact-page .page-title{font-size:clamp(36px,10vw,52px);line-height:1.1;letter-spacing:-1.2px;overflow-wrap:break-word}
+  .research-lead{font-size:17px;line-height:1.65}
+  .research-details{margin-top:30px}
+  .research-details>article{padding-block:28px}
+  .research-details>article>p:not(.eyebrow){font-size:16px}
+  .research-details details{padding:18px 16px;width:100%}
+  .research-details summary{font-size:16px;line-height:1.55;overflow-wrap:anywhere}
+  .research-details details p{font-size:15px;line-height:1.7}
+  .research-details details .text-link{font-size:14px;min-height:44px;padding-block:9px}
+  .research-card{padding:24px 20px}
+  .research-card p,.publication p{font-size:15px;line-height:1.7}
+  .publication{grid-template-columns:minmax(0,1fr);gap:16px;padding-block:25px}
+  .pub-meta{flex-wrap:wrap;gap:8px 12px;font-size:12px}
+  .pill{display:inline-block;font-size:10px;line-height:1.6;letter-spacing:.6px;max-width:100%;white-space:normal}
+  .publication h3{font-size:21px;line-height:1.4;overflow-wrap:anywhere;letter-spacing:-.3px}
+  .publication .authors{font-size:13px;line-height:1.7}
+  .publication-controls label{min-width:0;width:100%}
+  .publication-controls input{font-size:16px;min-height:48px}
+  .filter-buttons{display:flex;flex-wrap:wrap;width:100%;gap:8px}
+  .filter-buttons button{flex:1 1 calc(50% - 8px);min-height:44px;font-size:13px;padding:10px}
+  .pub-links{flex-wrap:wrap;gap:10px 20px;font-size:14px}
+  .pub-links a,.cite-button{min-height:44px;display:inline-flex;align-items:center}
+  .cite-button{font-size:14px}
+  #citation{padding:14px;min-width:0}
+  .timeline article{grid-template-columns:64px minmax(0,1fr);gap:14px}
+  .timeline p{font-size:14px}
+  .gallery figcaption{flex-wrap:wrap;gap:6px 14px;font-size:12px}
+  .contact-page{min-height:0;margin-block:20px;padding-block:40px}
+  .contact-bottom{margin-top:28px;padding-top:22px;gap:20px}
+  .email{font-size:clamp(18px,5.6vw,24px);overflow-wrap:anywhere;max-width:100%}
+  .email span{margin-left:6px}
+  .socials{flex-wrap:wrap;gap:12px 24px;font-size:14px}
+  .socials a{min-height:44px;display:inline-flex;align-items:center}
+  footer{font-size:11px;line-height:1.6;gap:10px 20px;padding-block:20px}
+  footer>span{max-width:100%}
+  footer>a{min-height:44px;display:inline-flex;align-items:center}
+  #neural-canvas{opacity:.5}
+}
+@media (max-width:380px){
+  .actions{align-items:stretch}
+  .actions .button{width:100%}
+  .hero-photo figcaption{flex-direction:column;gap:3px}
+  .timeline article{grid-template-columns:minmax(0,1fr);gap:6px}
+}
