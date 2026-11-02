@@ -84,3 +84,6 @@ body{position:relative;isolation:isolate}#neural-canvas{position:fixed;inset:0;w
   .hero-photo figcaption{flex-direction:column;gap:3px}
   .timeline article{grid-template-columns:minmax(0,1fr);gap:6px}
 }
+
+/* Vector arrows keep the same appearance on iOS and other platforms. */
+.site-arrow{display:inline-block;width:1em;height:1em;min-width:1em;flex-shrink:0;vertical-align:-.12em;margin-inline-start:.2em;pointer-events:none}
