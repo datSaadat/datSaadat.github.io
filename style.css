@@ -117,3 +117,101 @@ body{position:relative;isolation:isolate}#neural-canvas{position:fixed;inset:0;w
   .mentoring-projects li::before{grid-column:1;grid-row:auto;padding-top:0}
   .mentoring-projects h4,.mentoring-projects p{grid-column:1}
 }
+
+/* Shared visual rhythm across the six portfolio pages. */
+:root{
+  --section-space:80px;
+  --page-heading-size:59px;
+  --section-heading-size:49px;
+  --content-heading-size:22px;
+  --reading-size:15px;
+  --heading-gap:24px;
+  --content-gap:32px;
+}
+.section{padding-block:var(--section-space)}
+.page-title,.research-page h1,.contact-page .page-title{
+  font-family:var(--serif);font-size:var(--page-heading-size);font-weight:400;
+  line-height:1.1;letter-spacing:-1.4px;margin-bottom:var(--heading-gap);
+  overflow-wrap:break-word;
+}
+h2{font-size:var(--section-heading-size);line-height:1.12;letter-spacing:-1.2px;margin-bottom:var(--heading-gap)}
+.eyebrow{font-size:10px;line-height:1.6;letter-spacing:1.6px;margin-bottom:20px}
+.section-heading{gap:24px;margin-bottom:var(--content-gap)}
+.section-heading .page-title,.section-heading h2{margin-bottom:0}
+.section-heading>p,.journey-intro,.contact-intro{font-size:var(--reading-size);line-height:1.7}
+.section-heading>p{max-width:360px}
+.research-lead{font-size:18px;line-height:1.7;margin-bottom:0}
+.research-details{margin-top:48px}
+.research-details>article{padding-block:36px;border-color:var(--line)}
+.research-details>article>p:not(.eyebrow){font-size:var(--reading-size);line-height:1.7}
+.research-details details{padding:24px;border-color:var(--line);border-radius:4px}
+.research-details details+details{margin-top:20px}
+.research-details summary{font-size:16px;line-height:1.55;font-weight:500}
+.research-details details p{font-size:var(--reading-size);line-height:1.7}
+.research-card{display:flex;flex-direction:column}
+.research-card h3,.publication h3{font-size:var(--content-heading-size);font-weight:500;line-height:1.4;letter-spacing:-.4px;margin-bottom:16px}
+.research-card p,.publication p{font-size:var(--reading-size);line-height:1.7}
+.research-card p{min-height:0;flex:1}
+.research-card .tag{margin-top:12px}
+.timeline h3,.teaching-mentoring h4{font-size:17px;line-height:1.45;font-weight:500;margin-bottom:8px}
+.timeline p,.teaching-mentoring p{font-size:14px;line-height:1.7}
+.timeline article,.mentoring-projects li{padding-block:24px}
+.timeline article:first-child,.mentoring-projects li:first-child{padding-top:0}
+.mentoring-projects li:last-child{padding-bottom:0}
+.academic-panels{gap:32px}
+.academic-panels>article{padding-block:24px;border-color:var(--line)}
+.text-link,.timeline a,.pub-links a,.cite-button,.socials a{
+  font-size:13px;line-height:1.6;
+  text-decoration:underline;text-decoration-color:#b4b2a5;
+  text-underline-offset:7px;text-decoration-thickness:1px;
+  border-bottom:0;padding-bottom:0;
+}
+.text-link,.timeline a,.pub-links a,.cite-button{color:var(--maroon)}
+.text-link:hover,.timeline a:hover,.pub-links a:hover,.cite-button:hover{color:#4d2026;text-decoration-color:currentColor}
+.text-link,.timeline a,.pub-links a,.cite-button,.socials a{min-height:36px}
+.pub-links{flex-wrap:wrap;gap:12px 24px;align-items:center}
+.site-arrow,.card-link-arrow{flex-shrink:0}
+.research-card h3 .card-link-arrow{width:.8em;height:.8em;vertical-align:-.05em}
+.button{min-height:48px;align-items:center;border-radius:4px}
+.pill{font-size:10px;line-height:1.6;letter-spacing:.6px;border-radius:3px}
+.pub-meta{font-size:12px;line-height:1.6}
+.gallery figcaption{font-size:12px;line-height:1.6}
+.gallery figcaption span:last-child{font-size:10px}
+.contact-page{padding-block:var(--section-space);margin-block:0}
+.contact-bottom{margin-top:32px;padding-top:24px}
+.contact .socials a{text-decoration-color:#838a7b}
+footer{font-size:11px;line-height:1.6;padding-block:24px;border-top:1px solid var(--line)}
+footer>a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:1000px){
+  :root{--section-space:64px;--page-heading-size:50px;--section-heading-size:42px}
+}
+@media(max-width:700px){
+  :root{
+    --section-space:40px;--page-heading-size:clamp(36px,10vw,44px);
+    --section-heading-size:clamp(32px,9vw,40px);--content-heading-size:21px;
+    --heading-gap:22px;--content-gap:28px;
+  }
+  .page-title,.research-page h1,.contact-page .page-title{letter-spacing:-1px}
+  h2{letter-spacing:-1px}
+  .eyebrow{font-size:10px;letter-spacing:1.1px;margin-bottom:18px}
+  .section-heading{gap:18px}
+  .section-heading>p{max-width:none}
+  .research-lead{font-size:17px}
+  .research-details{margin-top:32px}
+  .research-details>article{padding-block:28px}
+  .research-details details{padding:20px 16px}
+  .research-details details+details{margin-top:18px}
+  .research-details details .text-link{font-size:14px;padding-block:9px}
+  .research-card{padding:24px 20px}
+  .publication{padding-block:24px}
+  .timeline article,.mentoring-projects li{padding-block:22px}
+  .timeline article:first-child,.mentoring-projects li:first-child{padding-top:0}
+  .mentoring-projects li:last-child{padding-bottom:0}
+  .academic-panels{gap:28px}
+  .text-link,.timeline a,.pub-links a,.cite-button,.socials a{font-size:14px;min-height:44px}
+  .text-link{padding-block:9px}
+  .pub-links{gap:10px 20px}
+  .contact-bottom{margin-top:28px}
+  .gallery figcaption{gap:6px 14px}
+  footer{padding-block:20px}
+}
