@@ -88,30 +88,32 @@ body{position:relative;isolation:isolate}#neural-canvas{position:fixed;inset:0;w
 /* Vector arrows keep the same appearance on iOS and other platforms. */
 .site-arrow{display:inline-block;width:1em;height:1em;min-width:1em;flex-shrink:0;vertical-align:-.12em;margin-inline-start:.2em;pointer-events:none}
 
-/* Teaching and mentoring: separate cream panels with a clear hierarchy. */
-.teaching-mentoring h2{margin-bottom:36px}
-.teaching-mentoring .split{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
-.teaching-mentoring .split>article{min-width:0;background:var(--bg);border:1px solid #d1d0c4;border-radius:12px;padding:32px;box-shadow:0 6px 22px #282b2505;scroll-margin-top:28px}
-.teaching-mentoring h3{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:600;letter-spacing:-.4px;margin:0 0 26px;padding-bottom:20px;border-bottom:1px solid var(--line)}
-.teaching-mentoring h3::before{content:"";width:4px;height:24px;border-radius:2px;background:var(--maroon);flex-shrink:0}
-.teaching-mentoring h4{font-size:18px;font-weight:500;line-height:1.45;margin:0 0 10px;overflow-wrap:break-word}
-.teaching-mentoring p{color:var(--muted);font-size:15px;line-height:1.7}
-.teaching-mentoring .teaching-role{color:var(--maroon);font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:14px}
-.teaching-mentoring #teaching>p:last-child{font-size:13px;margin:18px 0 0}
-.teaching-mentoring #mentoring>p{margin-bottom:24px}
-.mentoring-projects{margin:0;padding-left:26px}
-.mentoring-projects li{padding:22px 0 0 10px;border-top:1px solid var(--line);margin-bottom:24px}
+/* Teaching and mentoring share the Journey milestone layout and type scale. */
+.teaching-mentoring .split{align-items:start}
+.academic-panels{min-width:0;display:grid;gap:36px}
+.academic-panels>article{min-width:0;background:rgba(246,244,238,.9);border-block:1px solid var(--line);padding:24px 0;scroll-margin-top:28px}
+.teaching-mentoring h3{font-size:10px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--maroon);margin:0 0 22px}
+.teaching-mentoring h4{font-size:17px;font-weight:500;line-height:1.45;margin:0 0 7px;overflow-wrap:break-word}
+.teaching-mentoring p{color:var(--muted);font-size:13px;line-height:1.65}
+.teaching-mentoring .teaching-role{font-size:12px;margin-bottom:10px}
+.teaching-mentoring #teaching>p:last-child{margin:14px 0 0}
+.teaching-mentoring #mentoring>p{margin-bottom:22px}
+.mentoring-projects{margin:0;padding:0;list-style:none;counter-reset:mentoring}
+.mentoring-projects li{display:grid;grid-template-columns:85px minmax(0,1fr);column-gap:26px;counter-increment:mentoring;border-top:1px solid var(--line);padding:23px 0}
+.mentoring-projects li::before{content:counter(mentoring,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;font-size:10px;color:var(--muted);padding-top:5px}
 .mentoring-projects li:first-child{padding-top:0;border-top:0}
-.mentoring-projects li:last-child{margin-bottom:0}
-.mentoring-projects li::marker{color:var(--maroon);font-size:14px;font-weight:600}
+.mentoring-projects li:last-child{padding-bottom:0}
+.mentoring-projects h4,.mentoring-projects p{grid-column:2}
 .mentoring-projects p{margin-bottom:0}
-@media(max-width:900px){.teaching-mentoring .split{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:700px){
-  .teaching-mentoring h2{margin-bottom:28px}
-  .teaching-mentoring .split{gap:24px}
-  .teaching-mentoring .split>article{padding:24px 20px;border-radius:10px}
-  .teaching-mentoring h3{font-size:22px;margin-bottom:22px;padding-bottom:16px}
-  .teaching-mentoring h4{font-size:17px}
-  .mentoring-projects{padding-left:22px}
-  .mentoring-projects li{padding-left:6px}
+  .academic-panels{gap:28px}
+  .academic-panels>article{padding-block:22px}
+  .teaching-mentoring h3{margin-bottom:20px}
+  .teaching-mentoring p{font-size:14px}
+  .mentoring-projects li{grid-template-columns:64px minmax(0,1fr);column-gap:14px}
+}
+@media(max-width:380px){
+  .mentoring-projects li{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .mentoring-projects li::before{grid-column:1;grid-row:auto;padding-top:0}
+  .mentoring-projects h4,.mentoring-projects p{grid-column:1}
 }
