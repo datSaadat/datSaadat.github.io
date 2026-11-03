@@ -88,14 +88,30 @@ body{position:relative;isolation:isolate}#neural-canvas{position:fixed;inset:0;w
 /* Vector arrows keep the same appearance on iOS and other platforms. */
 .site-arrow{display:inline-block;width:1em;height:1em;min-width:1em;flex-shrink:0;vertical-align:-.12em;margin-inline-start:.2em;pointer-events:none}
 
-/* Teaching and mentoring on the Journey page. */
-.teaching-mentoring h2{margin-bottom:42px}
-.teaching-mentoring h3{font-size:21px;font-weight:500;margin-bottom:18px}
-.teaching-mentoring h4{font-size:17px;font-weight:500;line-height:1.45;margin:0 0 8px}
-.teaching-mentoring p{color:var(--muted);font-size:15px}
-.teaching-mentoring .teaching-role{color:var(--maroon);font-size:13px;margin-bottom:10px}
-.mentoring-projects{margin:25px 0 0;padding-left:25px}
-.mentoring-projects li{padding:20px 0 0 8px;border-top:1px solid var(--line);margin-bottom:22px}
-.mentoring-projects li::marker{color:var(--maroon);font-size:13px}
+/* Teaching and mentoring: separate cream panels with a clear hierarchy. */
+.teaching-mentoring h2{margin-bottom:36px}
+.teaching-mentoring .split{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
+.teaching-mentoring .split>article{min-width:0;background:var(--bg);border:1px solid #d1d0c4;border-radius:12px;padding:32px;box-shadow:0 6px 22px #282b2505;scroll-margin-top:28px}
+.teaching-mentoring h3{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:600;letter-spacing:-.4px;margin:0 0 26px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.teaching-mentoring h3::before{content:"";width:4px;height:24px;border-radius:2px;background:var(--maroon);flex-shrink:0}
+.teaching-mentoring h4{font-size:18px;font-weight:500;line-height:1.45;margin:0 0 10px;overflow-wrap:break-word}
+.teaching-mentoring p{color:var(--muted);font-size:15px;line-height:1.7}
+.teaching-mentoring .teaching-role{color:var(--maroon);font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:14px}
+.teaching-mentoring #teaching>p:last-child{font-size:13px;margin:18px 0 0}
+.teaching-mentoring #mentoring>p{margin-bottom:24px}
+.mentoring-projects{margin:0;padding-left:26px}
+.mentoring-projects li{padding:22px 0 0 10px;border-top:1px solid var(--line);margin-bottom:24px}
+.mentoring-projects li:first-child{padding-top:0;border-top:0}
+.mentoring-projects li:last-child{margin-bottom:0}
+.mentoring-projects li::marker{color:var(--maroon);font-size:14px;font-weight:600}
 .mentoring-projects p{margin-bottom:0}
-@media(max-width:700px){.teaching-mentoring h2{margin-bottom:28px}.teaching-mentoring .split{gap:30px}.teaching-mentoring h4{overflow-wrap:break-word}}
+@media(max-width:900px){.teaching-mentoring .split{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){
+  .teaching-mentoring h2{margin-bottom:28px}
+  .teaching-mentoring .split{gap:24px}
+  .teaching-mentoring .split>article{padding:24px 20px;border-radius:10px}
+  .teaching-mentoring h3{font-size:22px;margin-bottom:22px;padding-bottom:16px}
+  .teaching-mentoring h4{font-size:17px}
+  .mentoring-projects{padding-left:22px}
+  .mentoring-projects li{padding-left:6px}
+}
